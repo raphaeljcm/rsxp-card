@@ -26,13 +26,13 @@ const MOTION_VARIANTS = {
   },
 };
 
-export default function Badge() {
+export default function Card() {
   const { user } = useGithubUser();
 
   return (
     <>
       <Head>
-        <title>RS/XP | Card</title>
+        <title>RS/XP | Badge</title>
       </Head>
       <div className="relative p-10 flex flex-col items-center md:justify-center">
         <motion.div

@@ -42,7 +42,7 @@ export default function Home() {
       setLoading(false);
       setFetchFinished(true);
       await new Promise(resolve => setTimeout(resolve, 1000));
-      router.push('/badge');
+      router.push('/card');
     } catch (err) {
       setLoading(false);
       setError(true);
