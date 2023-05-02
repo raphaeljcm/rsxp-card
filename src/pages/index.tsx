@@ -1,9 +1,9 @@
 import { GitHubUser } from '@/@types/types';
 import { TechsBackground } from '@/components/TechsBackground';
 import { useGithubUser } from '@/contexts/GithubUserContext';
+import { api } from '@/lib/axios';
 import { githubUserFormat } from '@/utils/normalize';
 import { ArrowRight, CircleNotch, Check, X } from '@phosphor-icons/react';
-import axios from 'axios';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -36,10 +36,8 @@ export default function Home() {
       setLoading(true);
       setError(false);
 
-      const { data } = await axios.get<GitHubUser>(
-        `${process.env.NEXT_PUBLIC_GITHUB_API_URL}/users/${githubUserFormat(
-          username,
-        )}`,
+      const { data } = await api.get<GitHubUser>(
+        `/users/${githubUserFormat(username)}`,
       );
 
       const githubUser = {

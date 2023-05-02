@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './src/pages/**/*.tsx',
-    './src/components/**/*.tsx',
-  ],
+  content: ['./src/pages/**/*.tsx', './src/components/**/*.tsx'],
   theme: {
     extend: {
       colors: {
@@ -45,9 +42,10 @@ module.exports = {
         button: 'rgba(153, 109, 255, 0.15) 0px 4px 5px 3px',
       },
       backgroundImage: {
-        heading: 'linear-gradient(to right bottom, rgb(255, 255, 255) 30%, rgba(255, 255, 255, 0.38))',
+        heading:
+          'linear-gradient(to right bottom, rgb(255, 255, 255) 30%, rgba(255, 255, 255, 0.38))',
       },
     },
   },
   plugins: [],
-}
+};
