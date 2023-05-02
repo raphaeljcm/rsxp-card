@@ -39,7 +39,7 @@ export default function Card() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 2 }}
-          className="absolute top-0 left-50"
+          className="absolute -top-24"
         >
           <Image src={lightsBackground} width={897} height={844} alt="" />
         </motion.div>

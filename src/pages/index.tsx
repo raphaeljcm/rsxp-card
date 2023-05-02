@@ -1,5 +1,6 @@
 import { GitHubUser } from "@/@types/types";
 import { useGithubUser } from "@/contexts/GithubUserContext";
+import { githubUserFormat } from "@/utils/normalize";
 import { ArrowRight, CircleNotch, Check, X } from "@phosphor-icons/react";
 import axios from "axios";
 import { AnimatePresence, motion } from 'framer-motion';
@@ -26,7 +27,7 @@ export default function Home() {
       setLoading(true);
       setError(false);
 
-      const { data } = await axios.get<GitHubUser>(`${process.env.NEXT_PUBLIC_GITHUB_API_URL}/users/${username}`);
+      const { data } = await axios.get<GitHubUser>(`${process.env.NEXT_PUBLIC_GITHUB_API_URL}/users/${githubUserFormat(username)}`);
 
       const githubUser = {
         name: data.name,
