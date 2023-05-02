@@ -1,13 +1,13 @@
-import { motion } from "framer-motion"
-import Image from "next/image"
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 import stripImg from '@/assets/strip.png';
 import badgeBackground from '@/assets/badge-background.png';
 import lightsBackground from '@/assets/lights.png';
 import logo from '@/assets/tiny-logo.png';
-import { ShareNetwork } from "@phosphor-icons/react";
-import { useGithubUser } from "@/contexts/GithubUserContext";
-import Head from "next/head";
+import { ShareNetwork } from '@phosphor-icons/react';
+import { useGithubUser } from '@/contexts/GithubUserContext';
+import Head from 'next/head';
 
 const MOTION_VARIANTS = {
   start: {
@@ -74,7 +74,15 @@ export default function Card() {
           />
 
           <header className="relative overflow-hidden">
-            <Image src={badgeBackground} width={327} height={160} quality={90} alt="" className="rounded-t-2xl object-cover" priority />
+            <Image
+              src={badgeBackground}
+              width={327}
+              height={160}
+              quality={90}
+              alt=""
+              className="rounded-t-2xl object-cover"
+              priority
+            />
             <Image
               src={logo}
               width={125}
@@ -84,7 +92,6 @@ export default function Card() {
             />
             <div className="w-40 h-40 rounded-full bg-gray-900 absolute left-[24.5%] translate-y-[55%] bottom-0" />
           </header>
-
 
           <main className="relative flex flex-col justify-center items-center gap-6 py-8 px-7">
             <>
@@ -118,10 +125,14 @@ export default function Card() {
                     />
                   </svg>
 
-                  <p className="text-gray-300 font-medium text-sm md:text-base">{user.login}</p>
+                  <p className="text-gray-300 font-medium text-sm md:text-base">
+                    {user.login}
+                  </p>
                 </div>
 
-                <p className="mt-6 text-zinc-300 text-sm md:text-base">{user.bio}</p>
+                <p className="mt-6 text-zinc-300 text-sm md:text-base">
+                  {user.bio}
+                </p>
               </div>
 
               <button
@@ -135,5 +146,5 @@ export default function Card() {
         </motion.div>
       </div>
     </>
-  )
+  );
 }

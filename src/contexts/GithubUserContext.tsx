@@ -1,5 +1,11 @@
-import { GitHubUser } from "@/@types/types";
-import { ReactNode, createContext, useCallback, useContext, useState } from "react";
+import { GitHubUser } from '@/@types/types';
+import {
+  ReactNode,
+  createContext,
+  useCallback,
+  useContext,
+  useState,
+} from 'react';
 
 interface GithubUserData {
   user: GitHubUser;
@@ -10,8 +16,7 @@ interface GithubUserProviderProps {
   children: ReactNode;
 }
 
-
-const GithubUserContext = createContext({} as GithubUserData)
+const GithubUserContext = createContext({} as GithubUserData);
 
 export function GithubUserProvider({ children }: GithubUserProviderProps) {
   const [user, setUser] = useState({} as GitHubUser);
@@ -22,7 +27,7 @@ export function GithubUserProvider({ children }: GithubUserProviderProps) {
     <GithubUserContext.Provider value={{ user, addUser }}>
       {children}
     </GithubUserContext.Provider>
-  )
+  );
 }
 
 export const useGithubUser = () => useContext(GithubUserContext);

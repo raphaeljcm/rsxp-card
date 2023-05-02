@@ -23,5 +23,6 @@ body {
 
 @layer components {
   .defaultButton {
-    @apply uppercase bg-rocketseat-mid hover:bg-rocketseat-dark hover:border-rocketseat-dark text-white p-3 rounded font-bold outline-none border border-rocketseat-mid focus:border-rocketseat-dark shadow-lg transition-colors duration-300 }
+    @apply uppercase bg-rocketseat-mid hover:bg-rocketseat-dark hover:border-rocketseat-dark text-white p-3 rounded font-bold outline-none border border-rocketseat-mid focus:border-rocketseat-dark shadow-lg transition-colors duration-300
+  }
 }
