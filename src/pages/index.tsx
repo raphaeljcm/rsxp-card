@@ -90,7 +90,7 @@ export default function Home() {
         transition={{ duration: 2 }}
         className="z-10 flex flex-col items-center justify-center text-center gap-2 max-w-[90vw] mx-auto"
       >
-        {/* <TechsBackground styles="absolute -z-10" /> */}
+        <TechsBackground styles="absolute -z-10" />
         <p className="uppercase text-zinc-300 font-medium text-sm md:text-base">
           Crie seu card para o rs/xp
         </p>
