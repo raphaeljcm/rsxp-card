@@ -1,4 +1,5 @@
 import { GitHubUser } from '@/@types/types';
+import { HeroPattern } from '@/components/HeroPattern';
 import { useGithubUser } from '@/contexts/GithubUserContext';
 import { githubUserFormat } from '@/utils/normalize';
 import { ArrowRight, CircleNotch, Check, X } from '@phosphor-icons/react';
@@ -7,6 +8,14 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { KeyboardEvent, useRef, useState } from 'react';
+
+const SHAKING_ERROR = {
+  animate: {
+    x: [-2, 2, -2, 2, -2, 0],
+    y: [0, -2, 2, -2, 2, 0],
+    transition: { duration: 0.5 },
+  },
+};
 
 export default function Home() {
   const [showInput, setShowInput] = useState(false);
@@ -72,14 +81,15 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>RX/XP | Home</title>
+        <title>RS/XP | Home</title>
       </Head>
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
-        className="flex flex-col items-center text-center gap-2 mt-60 max-w-[90vw] mx-auto"
+        className="z-10 flex flex-col items-center text-center gap-2 mt-60 max-w-[90vw] mx-auto"
       >
+        <HeroPattern styles="absolute -z-10 top-0 translate-y-[50%]" />
         <p className="uppercase text-zinc-300 font-medium text-sm md:text-base">
           Crie seu card para o rs/xp
         </p>
@@ -124,13 +134,17 @@ export default function Home() {
                 className="text-zinc-200 text-sm h-12 px-4 w-72 outline-none rounded-md font-medium bg-black transition-colors duration-500"
               />
 
-              <button
+              <motion.button
+                {...(error && SHAKING_ERROR)}
                 onClick={handleFetchGithubData}
                 className="bg-gray-500/50 absolute right-2 top-1/4 rounded-full p-1"
               >
                 {handleButtonIcon()}
-              </button>
+              </motion.button>
             </motion.div>
+          )}
+          {error && (
+            <p className="text-xs text-danger-base">Usuário não encontrado</p>
           )}
         </AnimatePresence>
       </motion.main>
