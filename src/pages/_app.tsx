@@ -40,7 +40,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
         <Component {...pageProps} />
 
-        <footer className="flex flex-col gap-4 mb-4 absolute bottom-0 left-0">
+        <footer className="flex flex-col gap-4 mb-4 absolute bottom-0 left-0 z-10">
           <motion.ul
             className="h-6 md:h-8 bg-rocketseat-light list-none flex gap-2 items-center whitespace-nowrap"
             whileHover={{ scale: 1.1 }}
