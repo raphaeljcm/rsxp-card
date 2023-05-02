@@ -34,7 +34,7 @@ export default function Card() {
       <Head>
         <title>RS/XP | Badge</title>
       </Head>
-      <div className="relative p-10 flex flex-col items-center md:justify-center">
+      <div className="relative p-10 flex flex-col items-center min-w-[90vw]">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -45,7 +45,7 @@ export default function Card() {
         </motion.div>
 
         <motion.div
-          className="relative w-80 border border-white/10 rounded-2xl shadow-lg bg-black/50 "
+          className="relative w-80 max-w-[90vw] border border-white/10 rounded-2xl shadow-lg bg-black/50 "
           variants={MOTION_VARIANTS}
           initial="start"
           animate="end"
@@ -100,7 +100,7 @@ export default function Card() {
               </div>
 
               <div className="mt-20 text-center">
-                <h1 className="font-bold text-2xl text-zinc-50">
+                <h1 className="font-bold text-xl md:text-2xl text-zinc-50">
                   {user.name}
                 </h1>
                 <div className="flex items-center justify-center gap-2">
@@ -118,15 +118,15 @@ export default function Card() {
                     />
                   </svg>
 
-                  <p className="text-gray-300 font-medium">{user.login}</p>
+                  <p className="text-gray-300 font-medium text-sm md:text-base">{user.login}</p>
                 </div>
 
-                <p className="mt-6 text-zinc-300">{user.bio}</p>
+                <p className="mt-6 text-zinc-300 text-sm md:text-base">{user.bio}</p>
               </div>
 
               <button
                 type="button"
-                className="defaultButton w-full hidden md:flex items-center justify-center gap-2"
+                className="defaultButton w-full flex items-center justify-center gap-2 text-sm md:text-base"
               >
                 <ShareNetwork /> Compartilhar
               </button>
