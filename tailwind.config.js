@@ -45,6 +45,9 @@ module.exports = {
         heading:
           'linear-gradient(to right bottom, rgb(255, 255, 255) 30%, rgba(255, 255, 255, 0.38))',
       },
+      screens: {
+        xl: '1400px',
+      },
     },
   },
   plugins: [],

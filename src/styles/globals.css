@@ -20,6 +20,12 @@
     max-height: 100vh;
     max-width: 1920px;
   }
+
+  @media (max-width: 1400px) {
+    html {
+      font-size: 80%;
+    }
+  }
 }
 
 @layer components {

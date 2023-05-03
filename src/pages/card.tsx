@@ -46,7 +46,7 @@ export default function Card() {
       <Head>
         <title>RS/XP | Badge</title>
       </Head>
-      <div className="relative p-10 flex flex-col items-center max-w-[90vw] md:max-w-[1920px]">
+      <div className="relative p-10 flex flex-col items-center max-w-[1920px]">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -57,7 +57,7 @@ export default function Card() {
         </motion.div>
 
         <motion.div
-          className="relative w-80 max-w-[90vw] border border-white/10 rounded-2xl shadow-lg bg-black/50 "
+          className="relative w-80 border border-white/10 rounded-2xl shadow-lg bg-black/50 "
           variants={MOTION_VARIANTS}
           initial="start"
           animate="end"
@@ -81,7 +81,7 @@ export default function Card() {
             height={500}
             quality={90}
             alt="strip to hold the card"
-            className="absolute translate-y-[-96%] translate-x-[150%] z-20 object-cover"
+            className="absolute translate-y-[-96%] translate-x-[110%] xl:translate-x-[150%] z-20 object-cover"
             priority
           />
 
