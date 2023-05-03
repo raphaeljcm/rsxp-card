@@ -16,10 +16,11 @@ export default function Document() {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rsxp-card.vercel.app" />
-        <meta
-          property="og:image"
-          content="https://rsxp-card.vercel.app/rocketseat-og.png"
-        />
+        <meta property="og:locale" content="pt-BR" />
+        <meta property="og:image" content="/rocketseat-og.png" />
+        <meta property="og:image:secure_url" content="/rocketseat-og.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta
           property="og:description"
           content="Crie seu card e mostre para o mundo que você irá no RS/XP 2023."
@@ -35,10 +36,10 @@ export default function Document() {
           property="twitter:description"
           content="Crie seu card e mostre para o mundo que você irá no RS/XP 2023."
         />
-        <meta
-          property="twitter:image"
-          content="https://rsxp-card.vercel.app/rocketseat-og.png"
-        />
+        <meta property="twitter:image" content="/rocketseat-og.png" />
+        <meta property="og:image:src" content="/rocketseat-og.png" />
+        <meta property="twitter:image:width" content="1200" />
+        <meta property="twitter:image:height" content="630" />
       </Head>
       <body>
         <Main />
