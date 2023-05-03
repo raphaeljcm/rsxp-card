@@ -8,6 +8,7 @@ import logo from '@/assets/tiny-logo.png';
 import { ShareNetwork } from '@phosphor-icons/react';
 import { useGithubUser } from '@/contexts/GithubUserContext';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 const MOTION_VARIANTS = {
   start: {
@@ -28,6 +29,18 @@ const MOTION_VARIANTS = {
 
 export default function Card() {
   const { user } = useGithubUser();
+
+  const router = useRouter();
+
+  const handleOGImage = () => {
+    const url = new URLSearchParams();
+
+    url.append('name', user.name);
+    url.append('login', user.login);
+    url.append('bio', user.bio);
+
+    router.push(`/api/og?${url.toString()}`);
+  };
 
   return (
     <>
@@ -138,6 +151,7 @@ export default function Card() {
               <button
                 type="button"
                 className="defaultButton w-full flex items-center justify-center gap-2 text-sm md:text-base"
+                onClick={handleOGImage}
               >
                 <ShareNetwork /> Compartilhar
               </button>

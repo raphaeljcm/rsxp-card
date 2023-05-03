@@ -11,9 +11,10 @@ export const config = {
 export default async function handler(req: NextApiRequest) {
   try {
     const { searchParams } = new URL(req.url!);
-    const username = searchParams.get('username') || 'username';
-    const name = searchParams.get('name') || 'name';
-    const bio = searchParams.get('bio') || 'bio';
+    const username = searchParams.get('login')?.slice(0, 100) || 'username';
+    const name = searchParams.get('name')?.slice(0, 100) || 'name';
+    const bio = searchParams.get('bio')?.slice(0, 100) || 'bio';
+    const url = `https://github.com/${username}.png`;
 
     return new ImageResponse(
       (
@@ -27,7 +28,7 @@ export default async function handler(req: NextApiRequest) {
         >
           <img src={`${backgroundImage}`} alt="" />
           <img
-            src="https://github.com/raphaeljcm.png"
+            src={url}
             alt="profile"
             width="170"
             height="170"
@@ -38,17 +39,19 @@ export default async function handler(req: NextApiRequest) {
               borderRadius: '50%',
             }}
           />
+
           <div
             style={{
-              width: '448px',
+              width: '100%',
+              maxWidth: '230px',
               display: 'flex',
-              alignItems: 'center',
               justifyContent: 'center',
-              textAlign: 'center',
+              alignItems: 'center',
               flexDirection: 'column',
+              textAlign: 'center',
               position: 'absolute',
               top: '290px',
-              right: 0,
+              right: '110px',
               gap: '5px',
             }}
           >
@@ -96,6 +99,7 @@ export default async function handler(req: NextApiRequest) {
                 {username}
               </p>
             </div>
+
             <p
               style={{
                 color: '#C4C4CC',
