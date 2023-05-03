@@ -34,24 +34,11 @@ export default function Card() {
   const router = useRouter();
 
   const handleShareOnLinkedIn = async () => {
-    try {
-      const { data } = await axios.get(
-        'https://www.linkedin.com/oauth/v2/authorization',
-        {
-          params: {
-            response_type: 'code',
-            scope: 'w_member_social',
-            client_id: process.env.NEXT_PUBLIC_LINKEDIN_CLIENT,
-            redirect_uri: process.env.NEXT_PUBLIC_LINKEDIN_REDIRECT_URI,
-            state: process.env.NEXT_PUBLIC_LINKEDIN_STATE_KEY,
-          },
-        },
-      );
+    const clientId = process.env.NEXT_PUBLIC_LINKEDIN_CLIENT;
+    const redirectUri = process.env.NEXT_PUBLIC_LINKEDIN_REDIRECT_URI;
+    const state = process.env.NEXT_PUBLIC_LINKEDIN_STATE_KEY;
 
-      console.log(data);
-    } catch (err: any) {
-      console.log(err.message);
-    }
+    window.location.href = `https://www.linkedin.com/oauth/v2/authorization/?response_type=code&scope=w_member_social&client_id=${clientId}&redirect_uri=${redirectUri}&state=${state}`;
   };
 
   return (
