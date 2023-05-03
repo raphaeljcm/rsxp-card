@@ -32,16 +32,17 @@ export default async function handler(
     if (!access_token)
       return res.status(401).json({ message: 'Invalid token.' });
 
-    const { data: me } = await axios.get('https://api.linkedin.com/v2/me', {
-      headers: {
-        Authorization: `Bearer ${access_token}`,
+    const { data: me } = await axios.get(
+      'https://api.linkedin.com/v2/userinfo',
+      {
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+        },
       },
-    });
-
-    console.log(me, 'deu');
+    );
 
     const body = {
-      author: `url:li:person:${me.id}`,
+      author: `url:li:person:${me.sub}`,
       lifecycleState: 'PUBLISHED',
       specificContent: {
         shareCommentary: 'RS/XP 2023',
