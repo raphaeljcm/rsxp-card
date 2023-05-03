@@ -43,8 +43,6 @@ export default async function handler(
 
     if (!me) return res.status(401).json({ message: 'Invalid user.' });
 
-    if (me) return res.status(200).json({ message: 'valid user' });
-
     const body = {
       author: `url:li:person:${me.sub}`,
       lifecycleState: 'PUBLISHED',
@@ -62,17 +60,11 @@ export default async function handler(
       visibility: 'PUBLIC',
     };
 
-    const { data: user } = await axios.post(
-      'https://api.linkedin.com/v2/ugcPosts',
-      body,
-      {
-        headers: {
-          Authorization: `Bearer ${access_token}`,
-        },
+    await axios.post('https://api.linkedin.com/v2/ugcPosts', body, {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
       },
-    );
-
-    console.log(user);
+    });
 
     return res.status(200).json({ message: 'success' });
   } catch (err: any) {
