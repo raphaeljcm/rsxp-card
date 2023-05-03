@@ -5,9 +5,10 @@ import stripImg from '@/assets/strip.png';
 import badgeBackground from '@/assets/badge-background.png';
 import lightsBackground from '@/assets/lights.png';
 import logo from '@/assets/tiny-logo.png';
-import { ShareNetwork } from '@phosphor-icons/react';
+import { Download } from '@phosphor-icons/react';
 import { useGithubUser } from '@/contexts/GithubUserContext';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 const MOTION_VARIANTS = {
   start: {
@@ -28,16 +29,16 @@ const MOTION_VARIANTS = {
 
 export default function Card() {
   const { user } = useGithubUser();
+  const router = useRouter();
 
-  const handleShareOnLinkedIn = async () => {
-    const clientId = process.env.NEXT_PUBLIC_LINKEDIN_CLIENT;
-    const redirectUri = process.env.NEXT_PUBLIC_LINKEDIN_REDIRECT_URI;
-    const state = process.env.NEXT_PUBLIC_LINKEDIN_STATE_KEY;
+  const handleDownload = () => {
+    const url = new URLSearchParams();
 
-    window.open(
-      `https://www.linkedin.com/oauth/v2/authorization/?response_type=code&scope=w_member_social,openid,profile,email&client_id=${clientId}&redirect_uri=${redirectUri}&state=${state}`,
-      '__blank',
-    );
+    url.append('name', user.name);
+    url.append('login', user.login);
+    url.append('bio', user.bio);
+
+    router.push(`/api/og?${url.toString()}`);
   };
 
   return (
@@ -149,9 +150,9 @@ export default function Card() {
               <button
                 type="button"
                 className="defaultButton w-full flex items-center justify-center gap-2 text-sm md:text-base"
-                onClick={handleShareOnLinkedIn}
+                onClick={handleDownload}
               >
-                <ShareNetwork /> Compartilhar
+                <Download /> Baixar card
               </button>
             </>
           </main>

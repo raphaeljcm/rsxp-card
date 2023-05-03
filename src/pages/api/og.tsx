@@ -94,6 +94,7 @@ export default async function handler(req: NextApiRequest) {
                   fontWeight: 500,
                   fontSize: 14,
                   margin: 0,
+                  whiteSpace: 'pre-wrap',
                 }}
               >
                 {username}
