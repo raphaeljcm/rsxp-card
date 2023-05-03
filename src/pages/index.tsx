@@ -108,7 +108,7 @@ export default function Home() {
           >
             <button
               type="button"
-              className="text-zinc-200 text-sm md:text-base h-12 px-12 rounded-md font-medium bg-black shadow-button hover:bg-gradient-to-r hover:from-rocketseat-light hover:via-rocketseat-dark hover:to-rocketseat-low hover:text-black transition-colors duration-300"
+              className="text-zinc-200 text-sm md:text-base h-12 px-12 rounded-md font-medium bg-black shadow-button hover:bg-gradient-to-r hover:from-rocketseat-light hover:via-rocketseat-dark hover:to-rocketseat-low hover:text-black transition-all duration-300"
             >
               Criar card
             </button>
