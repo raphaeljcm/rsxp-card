@@ -32,8 +32,6 @@ export default async function handler(
     if (!access_token)
       return res.status(401).json({ message: 'Invalid token.' });
 
-    return res.status(200).json({ access_token });
-
     const { data: me } = await axios.get(
       'https://api.linkedin.com/v2/userinfo',
       {

@@ -35,7 +35,7 @@ export default function Card() {
     const state = process.env.NEXT_PUBLIC_LINKEDIN_STATE_KEY;
 
     window.open(
-      `https://www.linkedin.com/oauth/v2/authorization/?response_type=code&scope=w_member_social&client_id=${clientId}&redirect_uri=${redirectUri}&state=${state}`,
+      `https://www.linkedin.com/oauth/v2/authorization/?response_type=code&scope=w_member_social,openid&client_id=${clientId}&redirect_uri=${redirectUri}&state=${state}`,
       '__blank',
     );
   };
