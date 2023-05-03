@@ -61,7 +61,7 @@ export default async function handler(
     };
 
     const { data: linkedin } = await axios.post(
-      'https://api.linkedin.com/v2/ugcPosts',
+      'https://api.linkedin.com/v2/create',
       body,
       {
         headers: {
