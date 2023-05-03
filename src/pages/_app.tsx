@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import logoRsxp from '@/assets/logo.png';
+import { Analytics } from '@vercel/analytics/react';
 
 import { StarFour } from '@phosphor-icons/react';
 import { GithubUserProvider } from '@/contexts/GithubUserContext';
@@ -91,6 +92,7 @@ export default function App({ Component, pageProps }: AppProps) {
           </motion.ul>
         </footer>
       </div>
+      <Analytics />
     </GithubUserProvider>
   );
 }
