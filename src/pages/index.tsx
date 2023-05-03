@@ -41,7 +41,7 @@ export default function Home() {
       );
 
       const githubUser = {
-        name: data.name.toLowerCase(),
+        name: data.name,
         avatar_url: data.avatar_url,
         login: data.login.toLowerCase(),
         bio: data.bio,
