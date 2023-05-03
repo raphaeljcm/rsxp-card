@@ -46,7 +46,7 @@ export default function Card() {
       <Head>
         <title>RS/XP | Badge</title>
       </Head>
-      <div className="relative p-10 flex flex-col items-center min-w-[90vw]">
+      <div className="relative p-10 flex flex-col items-center max-w-[90vw] md:max-w-[1920px]">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -110,8 +110,8 @@ export default function Card() {
               <div className="absolute -top-16 w-36 h-36 rounded-full overflow-hidden">
                 <Image
                   src={user.avatar_url}
-                  width={140}
-                  height={140}
+                  width={144}
+                  height={144}
                   alt="userProfile"
                   className="object-cover"
                   priority

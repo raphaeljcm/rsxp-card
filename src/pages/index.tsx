@@ -86,7 +86,7 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
-        className="z-10 flex flex-col items-center justify-center text-center gap-2 max-w-[90vw] mx-auto"
+        className="z-10 flex flex-col items-center justify-center text-center gap-2 max-w-[90vw] md:max-w-[1920px] mx-auto"
       >
         <TechsBackground styles="absolute -z-10" />
         <p className="uppercase text-zinc-300 font-medium text-sm md:text-base">
