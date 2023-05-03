@@ -43,6 +43,8 @@ export default async function handler(
 
     if (!me) return res.status(401).json({ message: 'Invalid user.' });
 
+    if (me) return res.status(200).json({ message: 'valid user' });
+
     const body = {
       author: `url:li:person:${me.sub}`,
       lifecycleState: 'PUBLISHED',
