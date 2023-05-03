@@ -60,18 +60,20 @@ export default async function handler(
       visibility: 'PUBLIC',
     };
 
-    const { data: linkedin } = await axios.post(
-      'https://api.linkedin.com/v2/create',
-      body,
-      {
-        headers: {
-          Authorization: `Bearer ${access_token}`,
-          'X-Restli-Protocol-Version': '2.0.0',
-        },
-      },
-    );
+    return res.status(200).json({ me, access_token });
 
-    if (!linkedin) return res.status(401).json({ linkedin });
+    // const { data: linkedin } = await axios.post(
+    //   'https://api.linkedin.com/v2/ugcPosts',
+    //   body,
+    //   {
+    //     headers: {
+    //       Authorization: `Bearer ${access_token}`,
+    //       'X-Restli-Protocol-Version': '2.0.0',
+    //     },
+    //   },
+    // );
+
+    // if (!linkedin) return res.status(401).json({ linkedin });
 
     return res.status(200).json({ message: 'success' });
   } catch (err: any) {
