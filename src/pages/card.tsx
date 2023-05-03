@@ -8,8 +8,6 @@ import logo from '@/assets/tiny-logo.png';
 import { ShareNetwork } from '@phosphor-icons/react';
 import { useGithubUser } from '@/contexts/GithubUserContext';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
-import axios from 'axios';
 
 const MOTION_VARIANTS = {
   start: {
@@ -30,8 +28,6 @@ const MOTION_VARIANTS = {
 
 export default function Card() {
   const { user } = useGithubUser();
-
-  const router = useRouter();
 
   const handleShareOnLinkedIn = async () => {
     const clientId = process.env.NEXT_PUBLIC_LINKEDIN_CLIENT;
