@@ -9,6 +9,7 @@ import { ShareNetwork } from '@phosphor-icons/react';
 import { useGithubUser } from '@/contexts/GithubUserContext';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 const MOTION_VARIANTS = {
   start: {
@@ -32,14 +33,25 @@ export default function Card() {
 
   const router = useRouter();
 
-  const handleOGImage = () => {
-    const url = new URLSearchParams();
+  const handleShareOnLinkedIn = async () => {
+    try {
+      const { data } = await axios.get(
+        'https://www.linkedin.com/oauth/v2/authorization',
+        {
+          params: {
+            response_type: 'code',
+            scope: 'w_member_social',
+            client_id: process.env.NEXT_PUBLIC_LINKEDIN_CLIENT,
+            redirect_uri: process.env.NEXT_PUBLIC_LINKEDIN_REDIRECT_URI,
+            state: process.env.NEXT_PUBLIC_LINKEDIN_STATE_KEY,
+          },
+        },
+      );
 
-    url.append('name', user.name);
-    url.append('login', user.login);
-    url.append('bio', user.bio);
-
-    router.push(`/api/og?${url.toString()}`);
+      console.log(data);
+    } catch (err: any) {
+      console.log(err.message);
+    }
   };
 
   return (
@@ -151,7 +163,7 @@ export default function Card() {
               <button
                 type="button"
                 className="defaultButton w-full flex items-center justify-center gap-2 text-sm md:text-base"
-                onClick={handleOGImage}
+                onClick={handleShareOnLinkedIn}
               >
                 <ShareNetwork /> Compartilhar
               </button>
