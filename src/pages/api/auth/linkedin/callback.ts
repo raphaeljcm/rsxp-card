@@ -38,6 +38,8 @@ export default async function handler(
       },
     });
 
+    console.log(me, 'deu');
+
     const body = {
       author: `url:li:person:${me.id}`,
       lifecycleState: 'PUBLISHED',
