@@ -18,6 +18,8 @@ const inter = Inter({
 export default function App({ Component, pageProps }: AppProps) {
   const { route } = useRouter();
 
+  const randomArray = new Array(9).fill(0).map((_, i) => ++i);
+
   const isCardPage = route === '/card';
 
   return (
@@ -52,7 +54,7 @@ export default function App({ Component, pageProps }: AppProps) {
             className="h-6 md:h-8 bg-rocketseat-light list-none flex gap-2 items-center whitespace-nowrap"
             whileHover={{ scale: 1.1 }}
           >
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(item => (
+            {randomArray.map(item => (
               <motion.li
                 key={item}
                 initial={{ translateX: '-100%' }}
@@ -74,7 +76,7 @@ export default function App({ Component, pageProps }: AppProps) {
             className="h-6 md:h-8 bg-new-light list-none flex gap-2 items-center whitespace-nowrap"
             whileHover={{ scale: 1.1 }}
           >
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(item => (
+            {randomArray.map(item => (
               <motion.li
                 key={item}
                 animate={{ x: '-100%' }}
