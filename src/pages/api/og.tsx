@@ -11,9 +11,9 @@ export const config = {
 export default async function handler(req: NextApiRequest) {
   try {
     const { searchParams } = new URL(req.url!);
-    const username = searchParams.get('login')?.slice(0, 100) || 'username';
-    const name = searchParams.get('name')?.slice(0, 100) || 'name';
-    const bio = searchParams.get('bio')?.slice(0, 100) || 'bio';
+    const username = searchParams.get('login') || 'username';
+    const name = searchParams.get('name') || 'name';
+    const bio = searchParams.get('bio') || 'bio';
     const url = `https://github.com/${username}.png`;
 
     return new ImageResponse(
@@ -107,6 +107,7 @@ export default async function handler(req: NextApiRequest) {
                 fontWeight: 400,
                 fontSize: 16,
                 margin: 0,
+                height: '200px',
               }}
             >
               {bio}
