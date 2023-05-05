@@ -61,7 +61,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 initial={{ translateX: '-100%' }}
                 animate={{ x: '100%' }}
                 transition={{
-                  duration: 5,
+                  duration: 10,
                   ease: 'linear',
                   repeat: Infinity,
                   repeatType: 'loop',
@@ -82,7 +82,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 key={item}
                 animate={{ x: '-100%' }}
                 transition={{
-                  duration: 5,
+                  duration: 10,
                   ease: 'linear',
                   repeat: Infinity,
                   repeatType: 'loop',
