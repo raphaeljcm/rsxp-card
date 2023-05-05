@@ -1,4 +1,3 @@
-// eslint-disable
 import { NextApiRequest } from 'next';
 
 import { ImageResponse } from '@vercel/og';
