@@ -12,7 +12,8 @@ export default async function handler(req: NextApiRequest) {
     const { searchParams } = new URL(req.url!);
     const username = searchParams.get('login') || 'username';
     const name = searchParams.get('name') || 'name';
-    const bio = searchParams.get('bio')?.replaceAll(/[^\w\s]/gi, '') || 'bio';
+    // I'm not sure what's happening but whenever it sees a @, # or % it breaks the bio, making the text overflow
+    const bio = searchParams.get('bio')?.replaceAll(/[@#%]/g, '') || 'bio';
     const url = `https://github.com/${username}.png`;
 
     return new ImageResponse(
