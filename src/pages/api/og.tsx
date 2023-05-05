@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest) {
     const { searchParams } = new URL(req.url!);
     const username = searchParams.get('login') || 'username';
     const name = searchParams.get('name') || 'name';
-    const bio = searchParams.get('bio') || 'bio';
+    const bio = searchParams.get('bio')?.replaceAll(/[^\w\s]/gi, '') || 'bio';
     const url = `https://github.com/${username}.png`;
 
     return new ImageResponse(
@@ -93,7 +93,6 @@ export default async function handler(req: NextApiRequest) {
                   fontWeight: 500,
                   fontSize: 14,
                   margin: 0,
-                  whiteSpace: 'pre-wrap',
                 }}
               >
                 {username}
@@ -106,7 +105,6 @@ export default async function handler(req: NextApiRequest) {
                 fontWeight: 400,
                 fontSize: 16,
                 margin: 0,
-                height: '200px',
               }}
             >
               {bio}
