@@ -35,6 +35,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Link
             href="https://www.rocketseat.com.br/eventos/rsxp"
             target="-__blank"
+            className="inline-block w-fit"
           >
             <Image
               src={logoRsxp}
